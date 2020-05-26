@@ -3,7 +3,7 @@ import random
 def game_start():
     name = input("What is your name? ")
     print ("Hello, " + name, "Choose Game level: 1, 2, 3")
-    level = input(":")
+    level = input(":") #not sure what : means
     if level == "1":
         x = easy_level() #why isn't x called 1
         return x
@@ -18,7 +18,7 @@ def game_start():
 def play_game():
     print ("Word Guessing Game") #difference between play game versus game start
     word = game_start() # calls function on line  4 to start get the word length and level
-    word_length = len(word)
+    word_length = len(word) #len function returns the number of items in an object. When the object is a string, the len() function returns the number of characters in the string#
     #empty variable to store guesses
     guesses = ''
     #number of guesses
@@ -30,14 +30,14 @@ def play_game():
             if char in guesses:   # it compares guess character  and word char
                 print (char)
             else:
-                print ("_")   # if wrong char prints _ underscore
+                print ("_") #or else print  # if wrong char prints _ underscore hidden.append?
                 wrong += 1
         if wrong == 0:  # when  there is 0 wrong you won
             print ("You won" )
-            break
+            break #not sure what break means
         #user char input word length
         print("Word length is", word_length) # this will show up to let the user the length of the word user has to find
-        guess = input("guess a character:")
+        guess = input("Guess a character:") #dont understand the need for this
         #store input value
         guesses += guess.upper()  # to capitalize
         #checks if char not in guesses
@@ -54,7 +54,7 @@ def open_file():
         data = file.read().lower() # make sure all lowercase
         words = [word for word in data.split()] # this will create a long list of words from file
         return words
-# if level 1 call this method (list of easy words)
+# if level 1 call this method list of easy words
 def easy_level():
     easy = [] # we will store all easy words
     words = open_file() #calls function on line 78 to read all words
@@ -62,8 +62,8 @@ def easy_level():
         if len(word) >= 4 and len(word) < 6: # sorts easy ones
             easy.append(word) #stores in easy list
             value = random.choice(easy)
-            return value.upper() # at the and again apper case
-# if level 2 call this method (list of normal words)
+            return value.upper() # at the and again appear case
+# if level 2 call this method list of normal words
 def normal_level():
     normal = []
     words = open_file()
@@ -72,13 +72,13 @@ def normal_level():
             normal.append(word)
             value = random.choice(normal)
             return value.upper()
-# if level 3 call this method  (list of hard words)
-def hard_level():
+# if level 3 call this method  list of hard words
+def hard_level(): ##A function in Python is defined by a def statement. The general syntax looks like this: def function-name Parameter list#
     hard = []
     words = open_file()
     for word in words:
         if len(word) > 8:
-            hard.append(word)
+            hard.append(word) #why append (?)
             value = random.choice(hard)
             return value.upper()
 play_game()# this runs function on line on 23
